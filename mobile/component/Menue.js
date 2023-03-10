@@ -16,11 +16,11 @@ const Menue = () => {
   return (
     <View style={styles.buttonContainer}>
     <View style={styles.buttonIconWrapper}>
-      <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+      <TouchableOpacity onPress={() => navigation.navigate('Films')}>
         <Ionicons name="home-outline" color="#00ffff" size={30} />
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate('AllMusic')}>
-        <Ionicons name="musical-notes" color="white" size={30} />
+      <TouchableOpacity onPress={() => navigation.navigate('Favoris')}>
+        <Ionicons name="heart-outline" color="white" size={30} />
       </TouchableOpacity>
       {/* <TouchableOpacity onPress={() => navigation.navigate('Lyrics')}>
         <Ionicons name="ios-list-outline" color="white" size={30} />
