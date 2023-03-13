@@ -19,12 +19,9 @@ const Menue = () => {
       <TouchableOpacity onPress={() => navigation.navigate('Films')}>
         <Ionicons name="home-outline" color="#00ffff" size={30} />
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate('Favoris')}>
+      <TouchableOpacity onPress={() => navigation.navigate('')}>
         <Ionicons name="heart-outline" color="white" size={30} />
       </TouchableOpacity>
-      {/* <TouchableOpacity onPress={() => navigation.navigate('Lyrics')}>
-        <Ionicons name="ios-list-outline" color="white" size={30} />
-      </TouchableOpacity> */}
       <TouchableOpacity onPress={() => {}}>
         <Ionicons name="ellipsis-horizontal" color="white" size={30} />
       </TouchableOpacity>

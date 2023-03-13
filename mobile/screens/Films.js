@@ -20,31 +20,31 @@ const Films = () => {
   const BASE_URL = "https://api.themoviedb.org/3";
 
   useEffect(() => {
-    axios;
     axios
       .get(`${BASE_URL}/movie/popular?api_key=${API_KEY}&language=en-US&page=1`)
       .then((response) => {
         setListFilms(response.data.results);
-        console.log(listFilms);
+       
       })
       .catch((error) => {
         console.error(error);
       });
   }, []);
+  //  console.log(listFilms);
 
   return (
     <View style={styles.container}>
       <TextInput
         placeholder="Search your movies here"
         style={{
-          backgroundColor: '#f0f0f0',
-          color: '#888888',
+          backgroundColor: "#f0f0f0",
+          color: "#888888",
           padding: 10,
           fontSize: 15,
           height: 50,
           marginTop: 50,
-          placeholderTextColor: '#888888',
-          selectionColor: '#888888',
+          placeholderTextColor: "#888888",
+          selectionColor: "#888888",
           borderRadius: 10,
         }}
         // left={<TextInput.Icon name="magnify" />}
