@@ -1,18 +1,28 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  ScrollView,
+  TextInput,
+} from "react-native";
 import Menue from "../component/Menue";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import axios from "axios";
+import { MaterialIcons } from "@expo/vector-icons";
+import CardMovies from "../component/CardMovies";
 
 const Films = () => {
   const [listFilms, setListFilms] = useState([]);
   const API_KEY = "3bfc7e772d261f76fc5d3f33379ba743";
-  const BASE_URL = 'https://api.themoviedb.org/3';
-
+  const BASE_URL = "https://api.themoviedb.org/3";
 
   useEffect(() => {
+    axios;
     axios
-    axios.get(`${BASE_URL}/movie/popular?api_key=${API_KEY}&language=en-US&page=1`)
+      .get(`${BASE_URL}/movie/popular?api_key=${API_KEY}&language=en-US&page=1`)
       .then((response) => {
         setListFilms(response.data.results);
         console.log(listFilms);
@@ -24,20 +34,34 @@ const Films = () => {
 
   return (
     <View style={styles.container}>
+      <TextInput
+        placeholder="Search your movies here"
+        style={{
+          backgroundColor: '#f0f0f0',
+          color: '#888888',
+          padding: 10,
+          fontSize: 15,
+          height: 50,
+          marginTop: 50,
+          placeholderTextColor: '#888888',
+          selectionColor: '#888888',
+          borderRadius: 10,
+        }}
+        // left={<TextInput.Icon name="magnify" />}
+      />
       <Text style={styles.text}>list films</Text>
-      
-      {listFilms.map((films, i) => (
-      <View key={i}style={styles.listContainer}>
-        <Image source={require("../assets/img.jpg")} style={styles.image} />
-        <TouchableOpacity>
-          <Text style={styles.songTitle}>{films.title}</Text>
-          <Text style={styles.nameArtist}>Name Of Artist: unconnu</Text>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Ionicons name="ellipsis-horizontal" color="white" size={30} />
-        </TouchableOpacity>
-      </View>
-      ))}
+      <ScrollView
+        contentContainerStyle={{
+          flexDirection: "row",
+          justifyContent: "space-around",
+          flexWrap: "wrap",
+          alignItems: "center",
+        }}
+      >
+        {listFilms.map((movie, i) => (
+          <CardMovies movie={movie} key={i} />
+        ))}
+      </ScrollView>
       <View style={styles.maincontainer}></View>
       <Menue />
       <View />
@@ -62,22 +86,22 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   listContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "center",
     alignItems: "center",
-    marginLeft: 10,
-    marginTop: 15,
   },
   image: {
-    width: 80,
-    height: 80,
+    width: 170,
+    height: 200,
     borderRadius: 5,
+    margin: 10,
   },
-  songTitle: {
-    fontSize: 17,
-    marginLeft: 10,
-    fontWeight: "600",
-    color: "#EEEEEE",
+  filmTitle: {
+    padding: 14,
+    color: "white",
+    position: "absolute",
+    bottom: 10,
+    left: 2,
+    fontWeight: "bold",
   },
   nameArtist: {
     fontSize: 14,
