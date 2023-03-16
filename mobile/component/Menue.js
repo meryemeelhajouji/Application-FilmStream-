@@ -17,10 +17,10 @@ const Menue = () => {
     <View style={styles.buttonContainer}>
     <View style={styles.buttonIconWrapper}>
       <TouchableOpacity onPress={() => navigation.navigate('Films')}>
-        <Ionicons name="home-outline" color="#00ffff" size={30} />
+        <Ionicons name="list" color="white" size={30} />
       </TouchableOpacity>
       <TouchableOpacity onPress={() => navigation.navigate('')}>
-        <Ionicons name="heart-outline" color="white" size={30} />
+       <Text style={{color:"white", fontSize:20,}}> My Movies</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={() => {}}>
         <Ionicons name="ellipsis-horizontal" color="white" size={30} />

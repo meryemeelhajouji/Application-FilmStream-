@@ -15,15 +15,14 @@ import axios from "axios";
 
 const OneFilm = ({ route }) => {
   const { key } = route.params;
- 
 
   const [Movie, setMovie] = useState([]);
-  const[title, setTitle] = useState(null);
+  const [title, setTitle] = useState(null);
   const API_KEY = "3bfc7e772d261f76fc5d3f33379ba743";
   const BASE_URL = "https://api.themoviedb.org/3";
 
   const url = "https://image.tmdb.org/t/p/w500";
-  const poster=Movie.poster_path
+  const poster = Movie.poster_path;
   const img = url + poster;
 
   useEffect(() => {
@@ -31,17 +30,21 @@ const OneFilm = ({ route }) => {
       .get(`${BASE_URL}/movie/${key}?api_key=${API_KEY}&language=en-US`)
       .then((response) => {
         setMovie(response.data);
-       
-         console.log(key);
+
+        console.log(key);
       })
       .catch((error) => {
         console.error(error);
       });
-  }, []); console.log(Movie);
+  }, []);
+  console.log(Movie);
   return (
     <View style={styles.container}>
+      {/* <View style={styles.maincontainer}></View> */}
+      <Menue />
+
       <ImageBackground
-        source={{uri: img}}
+        source={{ uri: img }}
         style={{ width: "100%", height: 280 }}
       />
 
@@ -67,13 +70,9 @@ const OneFilm = ({ route }) => {
         <Text
           style={{ color: "white", opacity: 0.8, fontSize: 18, marginTop: 5 }}
         >
-        {Movie.overview}
+          {Movie.overview}
         </Text>
       </View>
-
-      <View style={styles.maincontainer}></View>
-      <Menue />
-      <View />
     </View>
   );
 };

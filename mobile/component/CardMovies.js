@@ -14,8 +14,7 @@ const CardMovies = ({ movie}) => {
     <View style={styles.listContainer}>
       <Image source={{uri: img}} style={styles.image} />
       <TouchableOpacity>
-        <Text style={styles.filmTitle}></Text>
-        <Text style={styles.nameArtist}>{movie.title}</Text>
+        <Text style={styles.filmTitle}>{movie.title}</Text>
       </TouchableOpacity>
       <TouchableOpacity   onPress={() => navigation.navigate('OneFilm', {key: movie.id })}>
         <MaterialIcons name="my-library-add" size={30} color="white" />
@@ -36,17 +35,20 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     margin: 10,
   },
+  // filmTitle: {
+  //   padding: 14,
+  //   color: "white",
+  //   position: "absolute",
+  //   bottom: 10,
+  //   left: 2,
+  //   fontWeight: "bold",
+  //   width: 200,
+  // },
   filmTitle: {
-    padding: 14,
-    color: "white",
-    position: "absolute",
-    bottom: 10,
-    left: 2,
-    fontWeight: "bold",
-  },
-  nameArtist: {
     fontSize: 14,
     marginLeft: 10,
     color: "#EEEEEE",
+    width: 150,
+    marginBottom:5,
   },
 });
