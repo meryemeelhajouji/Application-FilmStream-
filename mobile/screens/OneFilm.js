@@ -122,7 +122,7 @@ export default OneFilm;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#222831",
+    backgroundColor: "#000",
   },
   maincontainer: {
     flex: 1,
